@@ -3,6 +3,7 @@
 // git init
 // npm install express pg
 
+
 // requires
 const express = require( 'express' );
 const app = express();
@@ -16,9 +17,9 @@ app.use( bodyParser.urlencoded( { extended: true } ) );
 // db stuff
 const Pool = pg.Pool;
 const pool = new Pool({
-    database: '',
-    host: '',
-    port: 5432,
+    database: 'weekend-to-do-app',
+    host: 'localhost',
+    PORT: 5432,
     max: 12,
     idleTimeoutMillis: 30000
 }); // end pool
@@ -28,11 +29,21 @@ pool.on('connect', ()=>{
 })
 
 // globals
-const port = 5001;
+const PORT = process.env.PORT || 5001;
 
 // server up
-app.listen( port, ()=>{
-    console.log( 'server up on:', port );
+app.listen( PORT, ()=>{
+    console.log( 'server up on:', PORT );
 }) //end server up  
 
 // routes
+app.get('/task', (req,res)=>{
+    let queryText = 'SELECT * FROM "todo";';
+    pool.query(queryText).then(result => {
+      res.send(result.rows);
+    })
+    .catch(error => {
+      console.log('error getting tasks', error);
+      res.sendStatus(500);
+    });
+  });

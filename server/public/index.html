@@ -14,13 +14,24 @@
     <h1>Create a Task:</h1>
         <div class="inputDiv">
             <input type="text" id="taskIn" placeholder="New Task">
+            <input type="text" id="descriptionIn" placeholder="New Description">
+            <!-- am i going to need an input for completed? -->
             <button type="button" id="addButton">Add Task</button>
         </div>
     <h1>Task List:</h1>
-        <div class="inputDiv">
-            <ol>
-            <!-- jQuery to fill in -->
-            </ol>
-        </div>
+    <section>
+            <h2>All Tasks</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Task</th>
+                  <th>Description</th>
+                  <th>Completed</th>
+                </tr>
+              </thead>
+              <tbody id="viewTasks">
+              </tbody>
+            </table>
+          </section>
 </body>
 </html>
