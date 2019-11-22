@@ -3,7 +3,7 @@ $(document).ready(function() {
  console.log('JQ ready');
  getTasks();
  // click listeners here:
-
+ $( '#addButton').on('click', addTasks)
 });
 
 function getTasks (){
@@ -31,3 +31,24 @@ function getTasks (){
         console.log( error );
     })     
 }
+
+function addTasks (){
+    console.log('in addTasks');
+    let taskToSend = {
+        task: $( '#taskIn' ).val(),
+        description: $( '#descriptionIn' ).val(),
+        completed: $('#completedIn').val()
+    }
+    console.log('sending:', taskToSend);
+    $.ajax({
+        type: 'POST',
+        url: '/task',
+        data: taskToSend
+    }).then( function( response ){
+        console.log( 'back from POST with:', response );
+        getTasks();
+    }).catch( function( error ){
+        alert( 'error adding task. see console for details' );
+        console.log( error );
+    })
+}   

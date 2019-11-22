@@ -5,10 +5,10 @@ Components:
 <!-- - database creation
     - named: `weekend-to-do-app`
     - need a database.sql in root that includes CREATE TABLE -->
-- new tasks goes to db
-    <!-- - create inputs -->
-    - client set up and server gets, posts, puts
-- refreshes DOM with every new task added
+<!-- - new tasks goes to db
+    - create inputs
+    - client set up and server gets, posts, puts -->
+<!-- - refreshes DOM with every new task added -->
 - each task on the list needs a complete and delete button
     - complete button: visually changes to be checked off
         but also hooked into logic and stored in db
