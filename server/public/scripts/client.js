@@ -4,12 +4,13 @@ $(document).ready(function() {
  getTasks();
  // click listeners here:
  $( '#addButton').on('click', addTasks)
+ $( '#viewTasks').on('click', '.completed', changeCompleted)
 });
 
 function getTasks (){
     console.log('in getTasks');
     $.ajax({
-        type: 'GET',
+        method: 'GET',
         url: '/task'
     }).then( function( response ){
         let el = $( '#viewTasks' );
@@ -20,7 +21,7 @@ function getTasks (){
                         <td>${ todos.task }</td> 
                         <td>${ todos.description }</td> 
                         <td>${ todos.completed }</td> 
-                        <td><button class="complted">Complete Task</button></td>
+                        <td><button class="completed">Complete Task</button></td>
                         <td><button class="delete">Delete Task</button></td>
                         </tr>`);
             tr.data('id', todos.id);
@@ -41,14 +42,38 @@ function addTasks (){
     }
     console.log('sending:', taskToSend);
     $.ajax({
-        type: 'POST',
+        method: 'POST',
         url: '/task',
         data: taskToSend
     }).then( function( response ){
         console.log( 'back from POST with:', response );
         getTasks();
+        $( '#taskIn' ).val('');
+        $( '#descriptionIn' ).val('');
+        $('#completedIn').val('');
+        $( '#taskIn' ).focus();
     }).catch( function( error ){
         alert( 'error adding task. see console for details' );
         console.log( error );
     })
 }   
+
+
+function changeCompleted (){
+    console.log('in completed');
+    let id = $(this).closest('tr').data('id');
+    // let completed = $(this).closest('tr').children()[2].textContent;
+    // console.log(completed);
+    $.ajax({
+        method: 'PUT',
+        url: `/task/${id}`,
+        // data: {
+        //     completed: completed
+        // }
+    }).then(function(response){
+        getTasks();
+      }).catch( function( error ){
+        alert( 'error with task completion. see console for details' );
+        console.log( error );
+    })
+  }

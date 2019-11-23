@@ -61,3 +61,22 @@ app.get('/task', (req,res)=>{
       res.sendStatus(500);
     });
   });
+
+app.put('/task/:id', (req, res) => {
+    // let task = req.body;
+    let id = [req.params.id];
+    // let completed = task.completed
+    let sqlText = `UPDATE "todo" SET completed = 'true' WHERE id = $1;`;
+    console.log('task to complete:', id);
+    //     if (completed === 'false'){
+    //         sqlText = `UPDATE "todo" SET completed = 'true' WHERE id = $1`;
+    //     } else if (completed === 'true'){
+    //         sqlText = `UPDATE "todo" SET completed = 'false' WHERE id = $1`;
+    // }
+    pool.query(sqlText, id).then(response =>{
+    res.sendStatus(200);
+    }).catch(error => {
+    console.log('ERROR WITH TASK COMPLETION', error);
+    res.sendStatus(400);
+    });
+});

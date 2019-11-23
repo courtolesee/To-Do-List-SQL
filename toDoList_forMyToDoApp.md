@@ -1,7 +1,7 @@
 Components:
 <!-- completed items commented out -->
 
-- task input
+<!-- - task input -->
 <!-- - database creation
     - named: `weekend-to-do-app`
     - need a database.sql in root that includes CREATE TABLE -->
@@ -20,4 +20,3 @@ Components:
 - project description in the README
     - what problem did I solve and how
     - basic sections: description, screen shot, how to install, how to use, acknowledgement, support (suggestions or issues: email)
-    
