@@ -1,39 +1,12 @@
-// on document load
 $(document).ready(function() {
- console.log('JQ ready');
- getTasks();
+// on document load
+    console.log('JQ ready');
+    getTasks();
  // click listeners here:
- $( '#addButton').on('click', addTasks)
- $( '#viewTasks').on('click', '.completed', changeCompleted)
- $( '#viewTasks').on('click', '.delete', deleteTask);
-
+    $( '#addButton').on('click', addTasks)
+    $( '#viewTasks').on('click', '.completed', changeCompleted)
+    $( '#viewTasks').on('click', '.delete', deleteTask);
 });
-
-function getTasks (){
-    console.log('in getTasks');
-    $.ajax({
-        method: 'GET',
-        url: '/task'
-    }).then( function( response ){
-        let el = $( '#viewTasks' );
-        el.empty(); 
-        for( let i=0; i< response.length; i++ ){
-            let todos = response[ i ];
-            let tr = $(`<tr>
-                        <td>${ todos.task }</td> 
-                        <td>${ todos.description }</td> 
-                        <td>${ todos.completed }</td> 
-                        <td><button class="completed">Complete Task</button></td>
-                        <td><button class="delete">Delete Task</button></td>
-                        </tr>`);
-            tr.data('id', todos.id);
-            el.append( tr );
-        }
-        }).catch( function( error ){
-        alert( 'error getting task. see console for details' );
-        console.log( error );
-    })     
-}
 
 function addTasks (){
     console.log('in addTasks');
@@ -60,18 +33,12 @@ function addTasks (){
     })
 }   
 
-
 function changeCompleted (){
     console.log('in completed');
     let id = $(this).closest('tr').data('id');
-    // let completed = $(this).closest('tr').children()[2].textContent;
-    // console.log(completed);
     $.ajax({
         method: 'PUT',
         url: `/task/${id}`,
-        // data: {
-        //     completed: completed
-        // }
     }).then(function(response){
         getTasks();
       }).catch( function( error ){
@@ -80,7 +47,7 @@ function changeCompleted (){
     })
   }
 
-  function deleteTask (){
+function deleteTask (){
     let id = $(this).closest('tr').data('id');
     $.ajax({
         method: 'DELETE',
@@ -92,4 +59,32 @@ function changeCompleted (){
         alert( 'error deleting task. see console for details' );
         console.log( error );
     })
+}
+
+function getTasks (){
+    console.log('in getTasks');
+    $.ajax({
+        method: 'GET',
+        url: '/task'
+    }).then( function( response ){
+        let el = $( '#viewTasks' );
+        el.empty(); 
+        for( let i=0; i< response.length; i++ ){
+            let todos = response[ i ];
+            let tr = $(`<tr></tr>`);
+            tr.data('id', todos.id);
+            el.append( tr );
+            tr.append(`<td>${todos.task}</td>`);
+            tr.append(`<td>${todos.description}</td>`);
+            tr.append(`<td>${todos.completed}</td>`);
+            tr.append(`<td><button class="completed">Complete Task</button></td>`);
+            tr.append(`<td><button class="delete">Delete Task</button></td>`);
+            if( todos.completed === true ){
+                tr.addClass('makeGreen');
+                }
+        }
+        }).catch( function( error ){
+        alert( 'error getting task. see console for details' );
+        console.log( error );
+    })     
 }

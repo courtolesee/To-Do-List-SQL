@@ -3,7 +3,6 @@
 // git init
 // npm install express pg
 
-
 // requires
 const express = require( 'express' );
 const app = express();
@@ -22,7 +21,7 @@ const pool = new Pool({
     PORT: 5432,
     max: 12,
     idleTimeoutMillis: 30000
-}); // end pool
+}); 
 
 pool.on('connect', ()=>{
     console.log( 'connected to db' );
@@ -36,6 +35,7 @@ app.listen( PORT, ()=>{
     console.log( 'server up on:', PORT );
 }) //end server up  
 
+
 // routes
 app.get('/task', (req,res)=>{
     let queryText = 'SELECT * FROM "todo";';
@@ -48,7 +48,7 @@ app.get('/task', (req,res)=>{
     });
   });
 
-  app.post('/task', (req,res)=>{
+app.post('/task', (req,res)=>{
     let newTask = req.body;
     console.log('adding task', newTask);
     let queryText = `INSERT INTO "todo"("task", "description", "completed") 
@@ -63,16 +63,9 @@ app.get('/task', (req,res)=>{
   });
 
 app.put('/task/:id', (req, res) => {
-    // let task = req.body;
     let id = [req.params.id];
-    // let completed = task.completed
     let sqlText = `UPDATE "todo" SET completed = 'true' WHERE id = $1;`;
     console.log('task to complete:', id);
-    //     if (completed === 'false'){
-    //         sqlText = `UPDATE "todo" SET completed = 'true' WHERE id = $1`;
-    //     } else if (completed === 'true'){
-    //         sqlText = `UPDATE "todo" SET completed = 'false' WHERE id = $1`;
-    // }
     pool.query(sqlText, id).then(response =>{
     res.sendStatus(200);
     }).catch(error => {
