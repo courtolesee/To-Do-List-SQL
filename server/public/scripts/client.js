@@ -82,7 +82,7 @@ function getTasks (){
             if( todos.completed === true ){
                 tr.addClass('makeGreen');
                 }
-        }
+            }
         }).catch( function( error ){
         alert( 'error getting task. see console for details' );
         console.log( error );

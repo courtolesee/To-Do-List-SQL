@@ -27,3 +27,19 @@ p {
     text-align: center;
 }
 
+#viewTasks {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+th, td {
+    padding: 1.5%;
+}
+
+.delete {
+    background-color: rgb(172, 97, 97);
+    border: white 2px;
+}
+
+.completed {
+    background-color: rgb(180, 197, 180);
+}
