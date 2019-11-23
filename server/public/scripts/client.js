@@ -5,6 +5,8 @@ $(document).ready(function() {
  // click listeners here:
  $( '#addButton').on('click', addTasks)
  $( '#viewTasks').on('click', '.completed', changeCompleted)
+ $( '#viewTasks').on('click', '.delete', deleteTask);
+
 });
 
 function getTasks (){
@@ -77,3 +79,17 @@ function changeCompleted (){
         console.log( error );
     })
   }
+
+  function deleteTask (){
+    let id = $(this).closest('tr').data('id');
+    $.ajax({
+        method: 'DELETE',
+        url: `/task/${id}`,
+    }).then(function(response){
+        getTasks();
+        console.log('deleting:', id);
+    }).catch( function( error ){
+        alert( 'error deleting task. see console for details' );
+        console.log( error );
+    })
+}

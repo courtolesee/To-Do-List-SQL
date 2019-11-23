@@ -11,8 +11,8 @@ Components:
 <!-- - refreshes DOM with every new task added -->
 - each task on the list needs a complete and delete button
     - complete button: visually changes to be checked off
-        but also hooked into logic and stored in db
-    - delete button: deletes in the db and DOM
+        <!-- but also hooked into logic and stored in db -->
+    <!-- - delete button: deletes in the db and DOM -->
 - styling
     - background color
     - font and family 

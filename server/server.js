@@ -43,7 +43,7 @@ app.get('/task', (req,res)=>{
       res.send(result.rows);
     })
     .catch(error => {
-      console.log('error getting tasks', error);
+      console.log('ERROR GETTING TASK------->', error);
       res.sendStatus(500);
     });
   });
@@ -57,7 +57,7 @@ app.get('/task', (req,res)=>{
     .then(result =>{
       res.sendStatus(201);
     }).catch(error => {
-      console.log('error adding new task', error);
+      console.log('ERROR ADDING NEW TASK------->', error);
       res.sendStatus(500);
     });
   });
@@ -76,7 +76,18 @@ app.put('/task/:id', (req, res) => {
     pool.query(sqlText, id).then(response =>{
     res.sendStatus(200);
     }).catch(error => {
-    console.log('ERROR WITH TASK COMPLETION', error);
+    console.log('ERROR WITH TASK COMPLETION------->', error);
     res.sendStatus(400);
+    });
+});
+
+app.delete( '/task/:id', (req, res)=>{
+    console.log('DELETE hit id =', req.params.id);
+    let queryString = `DELETE FROM "todo" WHERE "id" = $1;`;
+    pool.query(queryString, [req.params.id]).then(result =>{
+        res.sendStatus(200);
+    }).catch(error=>{
+        console.log('ERROR DELETING TASK------->', error);
+        res.sendStatus(400);
     });
 });
