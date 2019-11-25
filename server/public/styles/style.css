@@ -1,11 +1,40 @@
 body {
-    background-color: rgb(213, 233, 213);
+    background-color: rgb(17, 34, 109);
     margin-left: 2%;
 }
 
-.makeGreen {
-    background-color: rgb(89, 128, 89);
-    color: rgb(232, 240, 233);
+header {
+    background-color: rgb(33, 48, 114);
+    color: rgb(202, 208, 231);
+    letter-spacing: .2em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-variant: small-caps;
+}
+
+p {
+    background-color: rgb(40, 56, 126);
+    color: rgb(202, 208, 231);
+    letter-spacing: .25em;
+    font-style: italic;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h1 {
+    color: rgb(202, 208, 231);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.inputDiv {
+    padding: 2%;
+    text-align: center;
+    margin-top: 0%;
+    background-color: rgb(33, 48, 114);
+}
+
+
+.makeComplete {
+    background-color: rgb(40, 56, 126);
+    color: rgb(202, 208, 231);
 }
 
 header {
@@ -13,33 +42,47 @@ header {
     font-size: 5em;
 }
 
-p {
-    margin-top: 0%;
-}
-
 .header {
     text-align: center;
 }
 
-.inputDiv {
-    background-color: rgb(174, 204, 174);
-    padding: 2%;
-    text-align: center;
+p {
+    margin-top: 0%;
+}
+
+.taskList {
+    margin-bottom: 0%
+}
+
+table, th, td, tr, tbody {
+    margin-top: 0%;
+    padding: 1.5%;
+    width: 90%;
+    text-align: left;
+}
+
+tr {
+    color: rgb(202, 208, 231);
 }
 
 #viewTasks {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-th, td {
-    padding: 1.5%;
-}
 
 .delete {
-    background-color: rgb(172, 97, 97);
-    border: white 2px;
+    background-color: rgb(189, 73, 44);
+    color: rgb(202, 208, 231);
 }
 
 .completed {
-    background-color: rgb(180, 197, 180);
+    background-color: rgb(40, 56, 126);
+    color: rgb(202, 208, 231);
+}
+
+.notComplete {
+    background-color: rgb(154, 164, 206);
+    color: rgb(202, 208, 231);
+    font-size: 2em;
+    color: rgb(9, 14, 39);
 }

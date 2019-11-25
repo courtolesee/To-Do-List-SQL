@@ -80,7 +80,9 @@ function getTasks (){
             tr.append(`<td><button class="completed">Complete Task</button></td>`);
             tr.append(`<td><button class="delete">Delete Task</button></td>`);
             if( todos.completed === true ){
-                tr.addClass('makeGreen');
+                tr.addClass('makeComplete');
+                } else {
+                    tr.addClass('notComplete');
                 }
             }
         }).catch( function( error ){
