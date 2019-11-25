@@ -12,10 +12,10 @@ Components:
 <!-- - each task on the list needs a complete and delete button -->
 <!-- - complete button: hooked into logic and stored in db
 - delete button: deletes in the db and DOM -->
-- styling
+<!-- - styling
     - background color
     - font and family 
-    <!-- - text color and background color of tasks based on completion -->
+    - text color and background color of tasks based on completion -->
 - project description in the README
     - what problem did I solve and how
     - basic sections: description, screen shot, how to install, how to use, acknowledgement, support (suggestions or issues: email)

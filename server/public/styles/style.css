@@ -1,10 +1,10 @@
 body {
-    background-color: rgb(17, 34, 109);
+    background-color: rgb(17, 29, 87);
     margin-left: 2%;
 }
 
 header {
-    background-color: rgb(33, 48, 114);
+    background-color: rgb(34, 47, 105);
     color: rgb(202, 208, 231);
     letter-spacing: .2em;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -16,6 +16,7 @@ p {
     color: rgb(202, 208, 231);
     letter-spacing: .25em;
     font-style: italic;
+    font-size: .8em;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -28,7 +29,7 @@ h1 {
     padding: 2%;
     text-align: center;
     margin-top: 0%;
-    background-color: rgb(33, 48, 114);
+    background-color: rgb(34, 47, 105);
 }
 
 
