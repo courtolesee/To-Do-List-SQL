@@ -16,6 +16,6 @@ Components:
     - background color
     - font and family 
     - text color and background color of tasks based on completion -->
-- project description in the README
+<!-- - project description in the README
     - what problem did I solve and how
-    - basic sections: description, screen shot, how to install, how to use, acknowledgement, support (suggestions or issues: email)
+    - basic sections: description, screen shot, how to install, how to use, acknowledgement, support (suggestions or issues: email) -->
