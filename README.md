@@ -1,8 +1,9 @@
 # SQL To-Do List
 
 ## Description
+Duration: 2 days
 
-This is Courtney Olesee's full stack To Do List App for Weekend Challenge #3 of Tier 2 in Prime's Trifid Cohort. To use, follow the install instructions below, then input a task name, the description of the task, if it's completed (true or false,), and push the add task button. Once the task is completed, push the completed button and the task will change colors, fading to the background and highlighting any incompleted tasks remaining. To get any task (completed or not) completely off the list, push the delete button. All entered tasks are stored in the weekend-to-do-app database. Once the completed button has been pressed, it turns to true in the database. All deleted tasks are deleted from the database permanently. 
+This is Courtney Olesee's full stack To Do List App for Weekend Challenge #3 of Tier 2 in Prime's Trifid Cohort. To use, follow the install instructions below, then input a task name, the description of the task, if it's completed (true or false), and push the add task button. Once the task is completed, push the completed button and the task will change colors, fading to the background and highlighting any incompleted tasks remaining. To get any task (completed or not) completely off the list, push the delete button. All entered tasks are stored in the weekend-to-do-app database. Once the completed button has been pressed, it turns to true in the database. All deleted tasks are deleted from the database permanently. 
 
 ## Install
 
